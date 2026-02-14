@@ -1,108 +1,263 @@
- <!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bien-Être & Vitalité - Blog Santé</title>
     <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Navigation professionnelle -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">🌿 Bien-Être <span class="orange">&</span> Vitalité</a>
+            <a href="index.html" class="logo">
+                <i class="fas fa-leaf"></i>
+                <span>Bien-Être <span class="orange">&</span> Vitalité</span>
+            </a>
             
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Accueil</a></li>
-                <li><a href="hygiene-alimentaire.html">Hygiène alimentaire</a></li>
-                <li><a href="maternite.html">Maternité</a></li>
-                <li><a href="contact.html">Contact</a></li>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link active">Accueil</a></li>
+                <li><a href="hygiene-alimentaire.html" class="nav-link">Hygiène alimentaire</a></li>
+                <li><a href="maternite.html" class="nav-link">Maternité</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section avec bouton moderne -->
     <section class="hero">
-        <h1>Bienvenue sur <span>Bien-Être & Vitalité</span></h1>
-        <p>Votre blog dédié à la santé naturelle et au bien-être au quotidien</p>
+        <div class="hero-content">
+            <h1>Bienvenue sur <span class="highlight">Bien-Être & Vitalité</span></h1>
+            <p>Votre blog dédié à la santé naturelle et au bien-être au quotidien</p>
+            <div class="hero-buttons">
+                <a href="#categories" class="btn btn-primary">
+                    <i class="fas fa-arrow-down"></i>
+                    Découvrir
+                </a>
+                <a href="contact.html" class="btn btn-outline">
+                    <i class="fas fa-envelope"></i>
+                    Nous contacter
+                </a>
+            </div>
+        </div>
     </section>
 
     <!-- Présentation des catégories -->
-    <main class="container">
-        <h2 class="section-title">Nos catégories <span class="orange-dot">●</span></h2>
+    <main class="container" id="categories">
+        <div class="section-header">
+            <h2 class="section-title">Nos catégories</h2>
+            <p class="section-subtitle">Explorez nos articles par thématique</p>
+        </div>
         
         <div class="categories-grid">
             <!-- Catégorie Hygiène alimentaire -->
             <div class="category-card">
-                <img src="images/alimentation-equilibree.jpg" alt="Hygiène alimentaire" class="category-image">
+                <div class="category-image-wrapper">
+                    <img src="images/alimentation-equilibree.jpg" alt="Hygiène alimentaire" class="category-image">
+                    <div class="category-overlay">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                </div>
                 <div class="category-content">
                     <h3>Hygiène alimentaire</h3>
-                    <p>Découvrez nos articles sur l'alimentation saine et équilibrée.</p>
-                    <a href="hygiene-alimentaire.html" class="btn">Voir les articles →</a>
+                    <p>Découvrez nos articles sur l'alimentation saine et équilibrée pour prendre soin de votre santé au quotidien.</p>
+                    <div class="category-stats">
+                        <span><i class="far fa-file-alt"></i> 2 articles</span>
+                        <span><i class="far fa-clock"></i> Dernier ajout: Jan 2024</span>
+                    </div>
+                    <a href="hygiene-alimentaire.html" class="btn btn-secondary">
+                        Voir les articles
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
 
             <!-- Catégorie Maternité -->
             <div class="category-card">
-                <img src="images/suivi-grossesse.jpg" alt="Maternité" class="category-image">
+                <div class="category-image-wrapper">
+                    <img src="images/suivi-grossesse.jpg" alt="Maternité" class="category-image">
+                    <div class="category-overlay">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                </div>
                 <div class="category-content">
                     <h3>Maternité</h3>
-                    <p>Conseils et informations pour vivre sereinement votre grossesse.</p>
-                    <a href="maternite.html" class="btn">Voir les articles →</a>
+                    <p>Conseils et informations pour vivre sereinement votre grossesse, du premier trimestre à l'accouchement.</p>
+                    <div class="category-stats">
+                        <span><i class="far fa-file-alt"></i> 2 articles</span>
+                        <span><i class="far fa-clock"></i> Dernier ajout: Fév 2024</span>
+                    </div>
+                    <a href="maternite.html" class="btn btn-secondary">
+                        Voir les articles
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
 
-        <!-- Aperçu des derniers articles -->
-        <h2 class="section-title">Derniers articles <span class="orange-dot">●</span></h2>
-        
-        <div class="previews-grid">
-            <div class="preview-card">
-                <a href="hygiene-alimentaire.html#article1">
-                    <h4>Les bases d'une alimentation équilibrée</h4>
-                    <p>Hygiène alimentaire - 15 Jan 2024</p>
-                </a>
+        <!-- Section Articles récents avec design moderne -->
+        <div class="recent-articles">
+            <div class="section-header">
+                <h2 class="section-title">Articles récents</h2>
+                <p class="section-subtitle">Les derniers conseils de nos experts</p>
             </div>
-            <div class="preview-card">
-                <a href="hygiene-alimentaire.html#article2">
-                    <h4>Les super-aliments à intégrer dans votre routine</h4>
-                    <p>Hygiène alimentaire - 20 Jan 2024</p>
-                </a>
+            
+            <div class="articles-grid">
+                <div class="article-card">
+                    <div class="article-card-image">
+                        <img src="images/alimentation-equilibree.jpg" alt="Alimentation équilibrée">
+                        <span class="article-category">Hygiène alimentaire</span>
+                    </div>
+                    <div class="article-card-content">
+                        <h4>Les bases d'une alimentation équilibrée</h4>
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar"></i> 15 Jan 2024</span>
+                            <span><i class="far fa-clock"></i> 5 min</span>
+                        </div>
+                        <a href="hygiene-alimentaire.html#article1" class="btn btn-text">
+                            Lire l'article
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-card-image">
+                        <img src="images/super-aliments.jpg" alt="Super-aliments">
+                        <span class="article-category">Hygiène alimentaire</span>
+                    </div>
+                    <div class="article-card-content">
+                        <h4>Les super-aliments à intégrer dans votre routine</h4>
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar"></i> 20 Jan 2024</span>
+                            <span><i class="far fa-clock"></i> 4 min</span>
+                        </div>
+                        <a href="hygiene-alimentaire.html#article2" class="btn btn-text">
+                            Lire l'article
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-card-image">
+                        <img src="images/suivi-grossesse.jpg" alt="Suivi grossesse">
+                        <span class="article-category">Maternité</span>
+                    </div>
+                    <div class="article-card-content">
+                        <h4>Le suivi de grossesse trimestre par trimestre</h4>
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar"></i> 10 Fév 2024</span>
+                            <span><i class="far fa-clock"></i> 7 min</span>
+                        </div>
+                        <a href="maternite.html#article3" class="btn btn-text">
+                            Lire l'article
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-card-image">
+                        <img src="images/alimentation-grossesse.jpg" alt="Alimentation grossesse">
+                        <span class="article-category">Maternité</span>
+                    </div>
+                    <div class="article-card-content">
+                        <h4>Alimentation et bien-être pendant la grossesse</h4>
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar"></i> 15 Fév 2024</span>
+                            <span><i class="far fa-clock"></i> 6 min</span>
+                        </div>
+                        <a href="maternite.html#article4" class="btn btn-text">
+                            Lire l'article
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="preview-card">
-                <a href="maternite.html#article3">
-                    <h4>Le suivi de grossesse trimestre par trimestre</h4>
-                    <p>Maternité - 10 Fév 2024</p>
-                </a>
-            </div>
-            <div class="preview-card">
-                <a href="maternite.html#article4">
-                    <h4>Alimentation et bien-être pendant la grossesse</h4>
-                    <p>Maternité - 15 Fév 2024</p>
-                </a>
+        </div>
+
+        <!-- Section Newsletter moderne -->
+        <div class="newsletter-section">
+            <div class="newsletter-content">
+                <i class="fas fa-envelope-open-text newsletter-icon"></i>
+                <h3>Ne manquez aucun conseil !</h3>
+                <p>Recevez nos derniers articles directement dans votre boîte mail</p>
+                <form class="newsletter-form">
+                    <div class="form-group">
+                        <input type="email" placeholder="Votre adresse email" required>
+                        <button type="submit" class="btn btn-primary">
+                            S'abonner
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <label class="checkbox-label">
+                        <input type="checkbox" required> J'accepte de recevoir la newsletter
+                    </label>
+                </form>
             </div>
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer>
+    <!-- Footer professionnel -->
+    <footer class="footer">
         <div class="footer-container">
             <div class="footer-section">
-                <h4>🌿 Bien-Être & Vitalité</h4>
-                <p>Blog santé et bien-être - Conseils naturels</p>
+                <div class="footer-logo">
+                    <i class="fas fa-leaf"></i>
+                    <span>Bien-Être & Vitalité</span>
+                </div>
+                <p>Blog santé et bien-être - Conseils naturels par des professionnels de santé.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                </div>
             </div>
+            
             <div class="footer-section">
-                <h4>Liens rapides</h4>
-                <ul>
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="hygiene-alimentaire.html">Hygiène alimentaire</a></li>
-                    <li><a href="maternite.html">Maternité</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                <h4>Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Accueil</a></li>
+                    <li><a href="hygiene-alimentaire.html"><i class="fas fa-chevron-right"></i> Hygiène alimentaire</a></li>
+                    <li><a href="maternite.html"><i class="fas fa-chevron-right"></i> Maternité</a></li>
+                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i> Paris, France</li>
+                    <li><i class="fas fa-envelope"></i> contact@bienetre-vitalite.fr</li>
+                    <li><i class="fas fa-phone"></i> 01 23 45 67 89</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Horaires</h4>
+                <ul class="hours-info">
+                    <li>Lun - Ven: 9h - 18h</li>
+                    <li>Sam: 10h - 16h</li>
+                    <li>Dim: Fermé</li>
                 </ul>
             </div>
         </div>
+        
         <div class="footer-bottom">
-            <p>&copy; 2024 Bien-Être & Vitalité</p>
+            <p>&copy; 2024 Bien-Être & Vitalité. Tous droits réservés.</p>
+            <div class="footer-legal">
+                <a href="#">Mentions légales</a>
+                <a href="#">Politique de confidentialité</a>
+                <a href="#">CGU</a>
+            </div>
         </div>
     </footer>
 
