@@ -1,6 +1,6 @@
   // Attendre que le DOM soit complètement chargé
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM chargé - Initialisation du menu');
+    console.log('DOM chargé - Initialisation');
     
     // Récupérer les éléments du menu
     const menuToggle = document.getElementById('menuToggle');
@@ -8,104 +8,53 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Vérifier que les éléments existent
     if (menuToggle && navLinks) {
-        console.log('Menu trouvé - Ajout des événements');
+        console.log('Menu trouvé - OK');
         
-        // Ouvrir/fermer le menu quand on clique sur le bouton
-        menuToggle.addEventListener('click', function(e) {
+        // Ouvrir/fermer le menu au clic sur le bouton
+        menuToggle.onclick = function(e) {
             e.preventDefault();
-            e.stopPropagation();
             console.log('Clic sur le menu');
             
             // Basculer la classe active
-            navLinks.classList.toggle('active');
-            
-            // Changer l'icône du menu
-            const icon = this.querySelector('i');
-            if (icon) {
-                if (navLinks.classList.contains('active')) {
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-times');
-                } else {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
+            if (navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            } else {
+                navLinks.classList.add('active');
+                menuToggle.innerHTML = '<i class="fas fa-times"></i>';
             }
-        });
+        };
         
         // Fermer le menu quand on clique sur un lien
-        const links = navLinks.querySelectorAll('a');
-        links.forEach(link => {
-            link.addEventListener('click', function() {
+        const links = navLinks.getElementsByTagName('a');
+        for (let i = 0; i < links.length; i++) {
+            links[i].onclick = function() {
                 navLinks.classList.remove('active');
-                const icon = menuToggle.querySelector('i');
-                if (icon) {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
-            });
-        });
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            };
+        }
         
-        // Fermer le menu quand on clique en dehors
-        document.addEventListener('click', function(e) {
+        // Fermer le menu si on clique en dehors
+        document.onclick = function(e) {
             if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
                 navLinks.classList.remove('active');
-                const icon = menuToggle.querySelector('i');
-                if (icon) {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
             }
-        });
-        
-        // Fermer le menu quand on redimensionne (si on repasse en desktop)
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 768) {
-                navLinks.classList.remove('active');
-                const icon = menuToggle.querySelector('i');
-                if (icon) {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
-            }
-        });
-        
-        // Empêcher la propagation des clics dans le menu
-        navLinks.addEventListener('click', function(e) {
-            e.stopPropagation();
-        });
-        
+        };
     } else {
-        console.log('Menu non trouvé - Vérifiez les IDs');
-        if (!menuToggle) console.log('menuToggle non trouvé');
-        if (!navLinks) console.log('navLinks non trouvé');
+        console.log('Menu non trouvé');
+        if (!menuToggle) console.log('menuToggle manquant');
+        if (!navLinks) console.log('navLinks manquant');
     }
     
     // Gestion du formulaire de contact
     const contactForm = document.getElementById('contactForm');
-    
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.onsubmit = function(e) {
             e.preventDefault();
-            
-            // Simuler l'envoi
             alert('Merci pour votre message ! Nous vous répondrons dans les plus brefs délais.');
-            
-            // Réinitialiser le formulaire
             this.reset();
-        });
-    }
-    
-    // Smooth scroll pour les ancres
-    if (window.location.hash) {
-        const target = document.querySelector(window.location.hash);
-        if (target) {
-            setTimeout(() => {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }, 100);
-        }
+        };
     }
     
     // Highlight du menu actif
