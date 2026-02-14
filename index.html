@@ -4,15 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bien-Être & Vitalité - Blog Santé</title>
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Notre CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Navigation avec menu mobile -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">🌿 Bien-Être <span class="orange">&</span> Vitalité</a>
             
-            <ul class="nav-links">
+            <!-- Bouton menu hamburger -->
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <!-- Menu de navigation -->
+            <ul class="nav-links" id="navLinks">
                 <li><a href="index.html" class="active">Accueil</a></li>
                 <li><a href="hygiene-alimentaire.html">Hygiène alimentaire</a></li>
                 <li><a href="maternite.html">Maternité</a></li>
@@ -106,6 +115,7 @@
         </div>
     </footer>
 
+    <!-- JavaScript -->
     <script src="js/main.js"></script>
 </body>
 </html>
