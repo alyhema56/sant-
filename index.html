@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bien-Être & Vitalité - Blog Santé</title>
+    <title>Bien-Être & Vitalité - Accueil</title>
     <!-- Font Awesome pour les icônes -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Notre CSS -->
@@ -13,15 +13,18 @@
     <!-- Navigation avec menu mobile -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">🌿 Bien-Être <span class="orange">&</span> Vitalité</a>
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🌿</span>
+                <span class="logo-text">Bien-Être <span class="orange">&</span> Vitalité</span>
+            </a>
             
             <!-- Bouton menu hamburger -->
-            <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+            <button class="menu-toggle" id="menuToggle">
                 <i class="fas fa-bars"></i>
             </button>
             
             <!-- Menu de navigation -->
-            <ul class="nav-links" id="navLinks">
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html" class="active">Accueil</a></li>
                 <li><a href="hygiene-alimentaire.html">Hygiène alimentaire</a></li>
                 <li><a href="maternite.html">Maternité</a></li>
@@ -32,13 +35,15 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1>Bienvenue sur <span>Bien-Être & Vitalité</span></h1>
-        <p>Votre blog dédié à la santé naturelle et au bien-être au quotidien</p>
+        <div class="hero-content">
+            <h1>Bienvenue sur <span class="highlight">Bien-Être & Vitalité</span></h1>
+            <p>Votre blog dédié à la santé naturelle et au bien-être au quotidien</p>
+        </div>
     </section>
 
     <!-- Présentation des catégories -->
     <main class="container">
-        <h2 class="section-title">Nos catégories <span class="orange-dot">●</span></h2>
+        <h2 class="section-title">Nos catégories</h2>
         
         <div class="categories-grid">
             <!-- Catégorie Hygiène alimentaire -->
@@ -63,7 +68,7 @@
         </div>
 
         <!-- Aperçu des derniers articles -->
-        <h2 class="section-title">Derniers articles <span class="orange-dot">●</span></h2>
+        <h2 class="section-title">Derniers articles</h2>
         
         <div class="previews-grid">
             <div class="preview-card">
