@@ -1,67 +1,76 @@
-  // Attendre que le DOM soit complètement chargé
+  // Attendre que le DOM soit chargé
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM chargé - Initialisation');
+    console.log('DOM chargé');
     
-    // Récupérer les éléments du menu
+    // Récupérer les éléments
     const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
+    const navMenu = document.getElementById('navMenu');
     
     // Vérifier que les éléments existent
-    if (menuToggle && navLinks) {
-        console.log('Menu trouvé - OK');
+    if (menuToggle && navMenu) {
+        console.log('Menu trouvé');
         
-        // Ouvrir/fermer le menu au clic sur le bouton
-        menuToggle.onclick = function(e) {
+        // Clic sur le bouton menu
+        menuToggle.addEventListener('click', function(e) {
             e.preventDefault();
-            console.log('Clic sur le menu');
+            e.stopPropagation();
+            console.log('Clic menu');
             
-            // Basculer la classe active
-            if (navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            // Ouvrir/fermer le menu
+            navMenu.classList.toggle('active');
+            
+            // Changer l'icône
+            const icon = this.querySelector('i');
+            if (navMenu.classList.contains('active')) {
+                icon.className = 'fas fa-times';
             } else {
-                navLinks.classList.add('active');
-                menuToggle.innerHTML = '<i class="fas fa-times"></i>';
+                icon.className = 'fas fa-bars';
             }
-        };
+        });
         
-        // Fermer le menu quand on clique sur un lien
-        const links = navLinks.getElementsByTagName('a');
-        for (let i = 0; i < links.length; i++) {
-            links[i].onclick = function() {
-                navLinks.classList.remove('active');
-                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-            };
-        }
+        // Clic sur les liens du menu
+        const links = navMenu.querySelectorAll('a');
+        links.forEach(function(link) {
+            link.addEventListener('click', function() {
+                navMenu.classList.remove('active');
+                menuToggle.querySelector('i').className = 'fas fa-bars';
+            });
+        });
         
-        // Fermer le menu si on clique en dehors
-        document.onclick = function(e) {
-            if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
-                navLinks.classList.remove('active');
-                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        // Clic ailleurs sur la page
+        document.addEventListener('click', function(e) {
+            if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                navMenu.classList.remove('active');
+                menuToggle.querySelector('i').className = 'fas fa-bars';
             }
-        };
+        });
+        
+        // Redimensionnement
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                navMenu.classList.remove('active');
+                menuToggle.querySelector('i').className = 'fas fa-bars';
+            }
+        });
     } else {
         console.log('Menu non trouvé');
-        if (!menuToggle) console.log('menuToggle manquant');
-        if (!navLinks) console.log('navLinks manquant');
     }
     
-    // Gestion du formulaire de contact
+    // Formulaire de contact
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
-        contactForm.onsubmit = function(e) {
+        contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Merci pour votre message ! Nous vous répondrons dans les plus brefs délais.');
+            alert('Message envoyé ! Nous vous répondrons bientôt.');
             this.reset();
-        };
+        });
     }
     
-    // Highlight du menu actif
+    // Lien actif
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    const navLinks_ = document.querySelectorAll('.nav-links a');
+    const navLinks = document.querySelectorAll('.nav-menu a');
     
-    navLinks_.forEach(link => {
+    navLinks.forEach(function(link) {
         const linkPage = link.getAttribute('href');
         if (linkPage === currentPage) {
             link.classList.add('active');
